@@ -33,6 +33,24 @@ class Pizza{
   price(){
     return this.sizeCost() + this.toppingCost("meat") + this.toppingCost("veggie");
   }
+  addTopping(toptype,newtop){
+    if(toptype=="meat"){
+      this.meatToppings.push(newtop);
+    }
+    else if(toptype=="veggie"){
+      this.vegetableToppings.push(newtop);
+    }
+  }
+    removeTopping(toptype,newtop){
+      if(toptype=="meat"){
+        let c = this.meatToppings.indexOf(newtop);
+        var removed = this.meatToppings.splice(c,1);
+      }
+      else if(toptype=="veggie"){
+        let c = this.vegetableToppings.indexOf(newtop);
+        var removed = this.vegetableToppings.splice(c,1);
+      }
+    }
   //type class functions below
   static promotionalDeal(pizza,percent){
     let d = 100-percent;
